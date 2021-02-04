@@ -53,7 +53,8 @@ public class ReservaBean implements Serializable {
 	
 	@PostConstruct
     public void init(){
-        
+		fecha = "00/00/2021";
+		hora = "00:00";
 		System.out.println("***ReservaFacade INICIALIZADO***");
 		
     }
