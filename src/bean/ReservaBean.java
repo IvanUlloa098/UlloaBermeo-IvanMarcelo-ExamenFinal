@@ -6,9 +6,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import ejb.PersonaFacade;
+import ejb.ReservaFacade;
 import ejb.RestauranteFacade;
 import entity.Persona;
 import entity.Reserva;
@@ -17,7 +19,7 @@ import entity.Restaurante;
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
 @SessionScoped
-public class ReservaFacade implements Serializable {
+public class ReservaBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -45,7 +47,7 @@ public class ReservaFacade implements Serializable {
 	
 	Reserva reserva; 
 	
-	public ReservaFacade() {
+	public ReservaBean() {
 		
 	}
 	
@@ -131,10 +133,32 @@ public class ReservaFacade implements Serializable {
 	public void crearReserva() {
 		
 		try {
+									
+			persona = personaFacade.searchPerson(cedula);
+			restaurante = restauranteFacade.nombreRestaurante(restauranteSL);
+			
+			int aux = restaurante.getAforo()-Integer.valueOf(numPersonas);
+			
+			if (aux>0) {
+				reserva = new Reserva(fecha, hora, Integer.valueOf(numPersonas), persona, restaurante);
+				
+				reservaFacade.create(reserva);
+				
+				restaurante.setAforo(aux);
+				restauranteFacade.edit(restaurante);
+				
+				FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "menu.xhtml");
+			} else {
+				System.out.println(">>>>>>>>>>>>>>> NO HAY AFORO EN ESE RESTAURANTE");
+				FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "reserva.xhtml");
+			}
+			
+			
+			
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "reserva.xhtml");
 		}
 	}
 	

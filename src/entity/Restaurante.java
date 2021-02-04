@@ -19,7 +19,9 @@ public class Restaurante implements Serializable {
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(nullable=false, unique = true)
 	private String nombre;
+	
 	private String direccion;
 	private String telefono;
 	private int aforo;

@@ -120,7 +120,7 @@ public class PersonaBean implements Serializable {
 			
 			personaFacade.create(persona);
 			System.out.println(">>>>>>>>>>>>>	"+persona.getId());
-			id = persona.getId();
+			
 			FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "menu.xhtml");
 			
 		} catch (Exception e) {

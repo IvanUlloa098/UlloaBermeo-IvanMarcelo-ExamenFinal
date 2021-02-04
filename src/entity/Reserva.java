@@ -1,6 +1,8 @@
 package entity;
 
 import java.io.Serializable;
+
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
 /**
@@ -21,9 +23,11 @@ public class Reserva implements Serializable {
 	private String hora;
 	private int numPersonas;
 	
+	@JsonbTransient
 	@ManyToOne
 	Persona persona;
 	
+	@JsonbTransient
 	@ManyToOne
 	Restaurante restaurante;
 
