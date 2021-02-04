@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" type="javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" type="javascript"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' type=""></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<h:head>
+    <title>Menu</title>
+
+    <style type="">
+        h3{
+            margin-left: 5%;
+        }
+        
+        .column {
+		   float: left;
+		   width: 50%;
+		   margin-left: 5%;
+		}
+
+    </style>
+
+</h:head>
+
+<h:body style="background-image: url('https://www.evcourierexpress.com/assets/img/box.gif');background-size:54%; background-repeat: no-repeat">
+    <div class="navbar navbar-inverse" style="background-color: gainsboro">
+        
+        <h:form>
+            
+            <h:commandLink action="#{navegarBean.redirectPersona}">Agregar Cliente <i class='fab fa-codepen' style='font-size:24px'/></h:commandLink>
+            <h:commandLink action="#{navegarBean.redirectRestaurante}">Agregar Restaurante <i class='fab fa-codepen' style='font-size:24px'/></h:commandLink>
+
+            <h:commandLink action="#{navegarBean.redirectReserva}">Hacer Reserva <i class="fa fa-window-close" style="font-size:24px"/></h:commandLink>
+        </h:form>
+        
+    </div>
+   
+   
+  
+   
+   
+   
+   
+   
+   
+   
+
+</h:body>
+</html>
